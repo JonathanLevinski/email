@@ -1,5 +1,4 @@
 <?PHP
-	include '../../config/conexao.php';
 	if(isset($_POST['recuperar'])){
 		$email = $_POST['email'];
 					
@@ -22,17 +21,7 @@
 							$senha =  randString(10);
 						$senha_nomd5 = $senha;
 						$senha = md5($senha);
-						
-						$sql_email = "SELECT * FROM user_tb where email ='$email'";
-						$query_email = mysql_query($sql_email);
-						$count = mysql_num_rows($query_email);
-						
-						if($count == '1'){
-							
-					mysql_query("UPDATE user_tb SET 
-							senha_user = '$senha', alter_senha ='1' where email = '$email'");
-						}
-						
+
 						
 						  $para = $email;  /*Adiante já usarei a váriavel direta*/
 						  $assunto = "Recuperação de senha cmss";
